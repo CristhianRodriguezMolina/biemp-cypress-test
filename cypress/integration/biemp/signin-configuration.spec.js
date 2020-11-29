@@ -48,12 +48,14 @@ describe('Profile manage test', () => {
         cy.get('[href="/settings/profile"]').click() //click en la configuracion del usuario
         cy.get('[href="/settings/security"]').click() //click para configuracion de seguridad
         cy.get('.change-email > a').click()
+        cy.wait(1000)
         cy.get('[type="email"]').type('test@mail.com')
         cy.get('.modal-body > .input-data-container > [type="password"]').type("12345")
-        // cy.get('.modal-footer > .mt-3').click()
+        cy.get('.modal-footer > .mt-3').click()
         cy.wait(12000)
         cy.get('.change-email > a').click()
-        cy.get('[type="email"]').type('admin@localhost')
+        cy.wait(1000)
+        cy.get('input[type="email"]').type('admin@localhost')
         cy.get('.modal-body > .input-data-container > [type="password"]').type("12345")
         cy.get('.modal-footer > .mt-3').click()
         cy.wait(12000)
