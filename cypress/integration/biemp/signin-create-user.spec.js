@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('Test que crea un usuario, lo elimina y posteriormente hace logout', () => {
     it('Visits biemp site', () => {
         cy.visit('https://biemp.herokuapp.com/'); //Entramos al inicio de la pagina
         cy.get('.nav-item:nth-child(5) > .nav-link').click(); //Se da en el boton ingresar
@@ -25,9 +25,16 @@ describe('My First Test', () => {
         cy.get(':nth-child(6) > .MuiAutocomplete-root > .MuiFormControl-root > .MuiInputBase-root').type("user{downarrow}{enter}"); //Se ingresa el rol de usuario
         cy.get('.btn-lg').click();
         cy.get('form:nth-child(1)').submit(); //Se hace submit al formulario
-
+        cy.wait(2000)
+        
+        //BORRADO DEL USUARIO TEST        
         cy.get(':nth-child(6) > .justify-content-between > .flex-column > .btn-group-vertical > .btn-danger').click(); //Se da click en el boton borrar de la tarjeta de usuario
+        cy.wait(1000)
         cy.get('.modal-footer > .btn-danger').click(); //Se da en el boton borrar del modal del usuario   
-        cy.reload()
+        cy.wait(2000)
+
+        //LOGOUT
+        cy.get(':nth-child(2) > .button-transparent').click();
+        cy.get('.dropdown-item:nth-child(10)').click();
     })
 })
