@@ -31,8 +31,9 @@ describe('Profile manage test', () => {
         cy.get('[placeholder="Confirma la nueva contraseña"]').type("12345")
         cy.get('.mb-5').click()
         cy.wait(7000)
-        // cy.get(':nth-child(2) > .button-transparent').click()
-        // cy.click('[href="/auth/signin"]').click()
+        cy.get('.dropdown-toggle').click();
+        cy.get('.dropdown-item:nth-child(10)').click();
+        cy.wait(1000)
     })
 
     it('Change email test', () => {
@@ -48,12 +49,17 @@ describe('Profile manage test', () => {
         cy.get('[href="/settings/profile"]').click() //click en la configuracion del usuario
         cy.get('[href="/settings/security"]').click() //click para configuracion de seguridad
         cy.get('.change-email > a').click()
-        cy.get('[type="email"]').type('test@mail.com')
+        cy.get('[placeholder="Escribe tu nuevo correo electrónico"]').type('admin@localhost')
+        cy.get('[placeholder="Escribe tu nuevo correo electrónico"]').type('admin@localhost')
+
+        cy.get('[placeholder="Escribe tu nuevo correo electrónico"]').type('admin@localhost')
+        cy.get('[placeholder="Escribe tu nuevo correo electrónico"]').type('admin@localhost')
+        
         cy.get('.modal-body > .input-data-container > [type="password"]').type("12345")
         // cy.get('.modal-footer > .mt-3').click()
         cy.wait(12000)
         cy.get('.change-email > a').click()
-        cy.get('[type="email"]').type('admin@localhost')
+        cy.get('[placeholder="Escribe tu nuevo correo electrónico"]').type('admin@localhost')
         cy.get('.modal-body > .input-data-container > [type="password"]').type("12345")
         cy.get('.modal-footer > .mt-3').click()
         cy.wait(12000)

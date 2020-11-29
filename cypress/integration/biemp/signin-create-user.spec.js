@@ -27,7 +27,10 @@ describe('My First Test', () => {
         cy.get('form:nth-child(1)').submit(); //Se hace submit al formulario
 
         cy.get(':nth-child(6) > .justify-content-between > .flex-column > .btn-group-vertical > .btn-danger').click(); //Se da click en el boton borrar de la tarjeta de usuario
-        cy.get('.modal-footer > .btn-danger').click(); //Se da en el boton borrar del modal del usuario   
+        cy.get('.modal-footer > .btn-danger').click(); //Se da en el boton borrar del modal del usuario
+        cy.wait(2000)
         cy.reload()
+
+        
     })
 })
