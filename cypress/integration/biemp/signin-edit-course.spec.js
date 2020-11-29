@@ -45,5 +45,9 @@ describe('My First Test', () => {
         cy.get('.course-card:nth-child(3) .btn-outline-danger').click();
         cy.get('.modal-footer > .btn-danger').click(); //Se da en el boton borrar del modal del curso   
 
+        cy.get('.dropdown-toggle').click();
+        cy.get('.dropdown-item:nth-child(10)').click();
+        cy.wait(1000)
+
     })
 })
