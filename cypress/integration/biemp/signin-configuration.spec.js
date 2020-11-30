@@ -9,6 +9,7 @@ describe('Profile manage test', () => {
             .type('admin@localhost') //ingrese el usuario
         cy.get(':nth-child(2) > .box > .form-control')
             .type('12345') // ingrese la contraseña
+        cy.wait(2000)
         cy.get(':nth-child(3) > .form-control').click() // click en el boton ingresar
 
         cy.get(':nth-child(2) > .button-transparent').click() //click en las funciones del usuario
