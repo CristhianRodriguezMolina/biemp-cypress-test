@@ -1,5 +1,5 @@
-describe('Test que crea un usuario, lo elimina y posteriormente hace logout', () => {
-    it('Visits biemp site', () => {
+describe('User manage', () => {
+    it('Test que crea un usuario, lo elimina y posteriormente hace logout', () => {
         cy.visit('https://biemp.herokuapp.com/'); //Entramos al inicio de la pagina
         cy.get('.nav-item:nth-child(5) > .nav-link').click(); //Se da en el boton ingresar
         cy.get('.justify-content-between > .form-control').click(); //Se da click en el input de email
@@ -36,5 +36,6 @@ describe('Test que crea un usuario, lo elimina y posteriormente hace logout', ()
         //LOGOUT
         cy.get(':nth-child(2) > .button-transparent').click();
         cy.get('.dropdown-item:nth-child(10)').click();
+        cy.wait(1000)
     })
 })
