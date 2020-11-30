@@ -1,6 +1,6 @@
 describe('Page use test', () => {
 
-    it('Change password test', () => {
+    it('General use page test', () => {
         cy.visit('https://biemp.herokuapp.com/');
         cy.get('.nav-item:nth-child(5) > .nav-link').click();
         cy.get('.justify-content-between > .form-control').click();
