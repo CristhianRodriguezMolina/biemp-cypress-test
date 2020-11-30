@@ -1,3 +1,17 @@
+import { LoremIpsum } from "lorem-ipsum";
+
+//opciones para generar nombres aleatiorios
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4
+  }
+});
+
 describe('Bugs found', () => {
 
     it('bug al entrar en la opcion de gestionar usuarios', () => {
@@ -64,6 +78,28 @@ describe('Bugs found', () => {
         cy.wait(5000) //Espera de 5 segundos
         cy.reload() // Recarga la pagina
 
+    })
+
+    it('Al crear curso toca recargar la pagina manualmente', () => {
+        cy.visit('http://biemp.herokuapp.com/')
+        cy.get(':nth-child(5) > .nav-link').click() //boton de ingresar
+        cy.get(':nth-child(1) > .box > .form-control')
+            .type('admin@localhost') //ingrese el usuario
+        cy.get(':nth-child(2) > .box > .form-control')
+            .type('12345') // ingrese la contraseña
+        cy.get(':nth-child(3) > .form-control').click() // click en el boton ingresar
+        cy.get(':nth-child(2) > .button-transparent').click() //click en las funciones del usuario
+        cy.get('[href="/course/all-courses"]').click() //click en la configuracion de un curso
+        cy.get('.justify-content-end > .btn').click() //click en el boton de crear curso
+        cy.get('.d-flex > :nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type(`0${lorem.generateWords(5)}`) //coloca un nombre aleatorio al curso colocando un cero al principio para asegurar que sea el primero de la lista
+        cy.get('[rows="1"]').type("esto es un curso") //coloca la descricion del curso
+        cy.get('[placeholder="Categorias"] > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment > .MuiAutocomplete-popupIndicator > .MuiIconButton-label > .MuiSvgIcon-root')
+            .type("Prototipos{downarrow}{enter}") //coloca categorias de tipo prototipos
+        cy.get(':nth-child(4) > .MuiFormControl-root > .MuiInputBase-root > .MuiAutocomplete-endAdornment > .MuiAutocomplete-popupIndicator > .MuiIconButton-label > .MuiSvgIcon-root')
+            .type("Principiante{downarrow}{enter}") //Coloca de nivel principiante
+        cy.get('.btn-primary').click() //click en crear curso
+        cy.wait(5000) //espera mientras crea
+        cy.reload()
     })
 
     
