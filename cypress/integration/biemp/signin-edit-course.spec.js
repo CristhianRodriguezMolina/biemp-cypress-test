@@ -12,8 +12,8 @@ const lorem = new LoremIpsum({
   }
 });
 
-describe('My First Test', () => {
-    it('Visits biemp site', () => {
+describe('Course manage', () => {
+    it('creacion, modificacion y eliminacion de un curso', () => {
         cy.visit('http://biemp.herokuapp.com/')
         cy.get(':nth-child(5) > .nav-link').click() //boton de ingresar
         cy.get(':nth-child(1) > .box > .form-control')
@@ -36,7 +36,7 @@ describe('My First Test', () => {
         cy.get('.course-card:nth-child(3) .btn-outline-primary').click();
         cy.get('.btn-primary').click();
         cy.get('.mr-sm-2').click();
-        cy.get('.mr-sm-2').type('https://www.youtube.com/watch?v=Dsgegf15ccA&ab_channel=BasaratAli');
+        cy.get('.mr-sm-2').type('https://www.youtube.com/watch?v=Dsgegf15ccA&ab_channel=BasaratAli'); //Coloca la direccion del video
         cy.get('.btn-primary').click();        
         cy.get('.MuiFab-label > .MuiSvgIcon-root').click();
         cy.wait(2000) //espera mientras carga el video
