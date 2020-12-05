@@ -1,7 +1,6 @@
 describe('Profile manage test', () => {
 
     it('Change password test', () => {
-        cy.visit('http://biemp.herokuapp.com/')
 
         //LOGIN
         cy.get(':nth-child(5) > .nav-link').click() //boton de ingresar
@@ -27,7 +26,6 @@ describe('Profile manage test', () => {
     })
 
     it('Change email test', () => {
-        cy.visit('http://biemp.herokuapp.com/')
 
         //LOGIN
         cy.get(':nth-child(5) > .nav-link').click() //boton de ingresar

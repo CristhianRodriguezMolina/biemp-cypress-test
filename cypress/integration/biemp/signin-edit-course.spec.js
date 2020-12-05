@@ -14,7 +14,6 @@ const lorem = new LoremIpsum({
 
 describe('Course manage', () => {
     it('creacion, modificacion y eliminacion de un curso', () => {
-        cy.visit('http://biemp.herokuapp.com/')
         cy.get(':nth-child(5) > .nav-link').click() //boton de ingresar
         cy.get(':nth-child(1) > .box > .form-control')
             .type('admin@localhost') //ingrese el usuario

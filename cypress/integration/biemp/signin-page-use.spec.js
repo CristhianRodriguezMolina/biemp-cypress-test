@@ -1,7 +1,6 @@
 describe('Page use test', () => {
 
     it('visiting all pages', () => {
-        cy.visit('https://biemp.herokuapp.com/');
         cy.get('.nav-item:nth-child(5) > .nav-link').click();
         cy.get('.justify-content-between > .form-control').click();
         cy.get('.justify-content-between > .form-control').type('admin@localhost');
